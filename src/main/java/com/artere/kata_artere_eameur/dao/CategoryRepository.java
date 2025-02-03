@@ -24,7 +24,7 @@ public class CategoryRepository {
     }
 
     public Long delete(Long id){
-        // to do
+        categories.removeIf(c -> c.getId().equals(id));
         return id;
     }
 

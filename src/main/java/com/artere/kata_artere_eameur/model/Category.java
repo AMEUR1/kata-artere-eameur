@@ -1,5 +1,6 @@
 package com.artere.kata_artere_eameur.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
@@ -9,16 +10,16 @@ public class Category {
     private String Description;
     private Category parentCategory;
     private List<Category> subCategories;
-    private List<Category> products;
+    private List<Product> products;
 
 
-    public Category(Long id, String name, String description, Category parentCategory, List<Category> subCategories, List<Category> products) {
+    public Category(Long id, String name, String description, Category parentCategory) {
         this.id = id;
         this.name = name;
         Description = description;
         this.parentCategory = parentCategory;
-        this.subCategories = subCategories;
-        this.products = products;
+        this.subCategories = new ArrayList<>();
+        this.products = new ArrayList<>();
     }
 
     public Long getId() {
@@ -41,7 +42,7 @@ public class Category {
         return subCategories;
     }
 
-    public List<Category> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
@@ -65,7 +66,7 @@ public class Category {
         this.subCategories = subCategories;
     }
 
-    public void setProducts(List<Category> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 }

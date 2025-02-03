@@ -1,12 +1,13 @@
 package com.artere.kata_artere_eameur.dao;
 
-import com.artere.kata_artere_eameur.model.Category;
 import com.artere.kata_artere_eameur.model.Product;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class ProductRepository {
 
     // in memory products
@@ -24,7 +25,7 @@ public class ProductRepository {
     }
 
     public Long delete(Long id){
-        // to do
+        products.removeIf(p -> p.getId().equals(id));
         return id;
     }
 
