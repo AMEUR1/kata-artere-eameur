@@ -1,6 +1,8 @@
 package com.artere.kata_artere_eameur.dao;
 
 import com.artere.kata_artere_eameur.model.Category;
+import com.artere.kata_artere_eameur.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,6 +11,9 @@ import java.util.Optional;
 
 @Component
 public class CategoryRepository {
+
+    @Autowired
+    ProductRepository productRepository;
 
     // in memory categories
     private final List<Category> categories = new ArrayList<>();
@@ -25,6 +30,16 @@ public class CategoryRepository {
 
     public Long delete(Long id){
         categories.removeIf(c -> c.getId().equals(id));
+
+        List<Product> products = productRepository.findAll();
+
+        products.forEach(product -> {
+            if (product.getCategory() != null && product.getCategory().getId().equals(id)) {
+                product.setCategory(null);
+            }
+        });
+
+
         return id;
     }
 

@@ -33,4 +33,8 @@ public class ProductRepository {
         return products.stream().filter(c -> c.getId().equals(id)).findFirst();
     }
 
+    public List<Product> findAll(){
+        return products;
+    }
+
 }
