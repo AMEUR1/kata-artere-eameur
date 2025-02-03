@@ -9,10 +9,10 @@ public class Category {
     private String Description;
     private Category parentCategory;
     private List<Category> subCategories;
-    private List<Object> products;
+    private List<Category> products;
 
 
-    public Category(Long id, String name, String description, Category parentCategory, List<Category> subCategories, List<Object> products) {
+    public Category(Long id, String name, String description, Category parentCategory, List<Category> subCategories, List<Category> products) {
         this.id = id;
         this.name = name;
         Description = description;
@@ -41,7 +41,7 @@ public class Category {
         return subCategories;
     }
 
-    public List<Object> getProducts() {
+    public List<Category> getProducts() {
         return products;
     }
 
@@ -65,7 +65,7 @@ public class Category {
         this.subCategories = subCategories;
     }
 
-    public void setProducts(List<Object> products) {
+    public void setProducts(List<Category> products) {
         this.products = products;
     }
 }
